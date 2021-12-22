@@ -10,11 +10,9 @@ the startup and keeps it in memory.
 
 # How to start project locally
 
-* Install skaffold
-  `brew install skaffold`
+* Install skaffold   `brew install skaffold` [Mac]  or  `choco install skaffold` [Windows]  
 * Install Docker Desktop for [Mac](https://www.docker.com/products/docker-desktop) for running kubernetes locally
-* Install kubectl (Optional for Docker Desktop)
-  `brew install kubectl`
+* Install kubectl (Optional for Docker Desktop)  `brew install kubectl`  [Mac]  or  `choco install kubectl-cli docker-cli` [Windows]  
 
 `git clone https://github.com/yrashish/indian-states`
 

@@ -98,4 +98,4 @@ profiles:
           buildpacks:
             builder: gcr.io/buildpacks/builder:v1
             env:
-              - GOOGLE_RUNTIME_VERSION=16
+              - GOOGLE_RUNTIME_VERSION=11

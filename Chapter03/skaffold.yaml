@@ -1,10 +1,11 @@
-apiVersion: skaffold/v2beta19
+# https://skaffold.dev/docs/references/yaml/
+apiVersion: skaffold/v2beta26
 kind: Config
 metadata:
   name: skaffold-introduction
 build:
   artifacts:
-    - image: docker.io/hiashish/skaffold-introduction
+    - image: skaffold-introduction
       jib: { }
   tagPolicy:
     sha256: { }
@@ -16,19 +17,19 @@ deploy:
 profiles:
   - name: test
     test:
-      - image: docker.io/hiashish/skaffold-introduction
+      - image: skaffold-introduction
         custom:
           - command: mvn test -Dmaven.test.skip=false
   - name: sync
     build:
       artifacts:
-        - image: docker.io/hiashish/skaffold-introduction
+        - image: skaffold-introduction
           sync:
             auto: true
           jib: { }
   - name: docker
     build:
       artifacts:
-        - image: docker.io/hiashish/skaffold-introduction
+        - image: skaffold-introduction
           docker:
             dockerfile: Dockerfile

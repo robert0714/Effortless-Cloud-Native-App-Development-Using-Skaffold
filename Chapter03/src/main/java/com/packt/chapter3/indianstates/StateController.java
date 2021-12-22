@@ -19,13 +19,13 @@ public class StateController {
     }
 
     @GetMapping("/states")
-    private List<State> getAllStates() {
+    public List<State> getAllStates() {
         LOGGER.info("Getting all Indian states and their capitals.");
         return stateService.findAll();
     }
 
     @GetMapping(value = "/state")
-    private String getSpecificState(@RequestParam(required = false, name = "name", defaultValue = "Maharashtra") String name) {
+    public String getSpecificState(@RequestParam(required = false, name = "name", defaultValue = "Maharashtra") String name) {
         return stateService.findByName(name);
     }
 }

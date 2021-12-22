@@ -17,17 +17,13 @@ public class StateService implements StateRepository {
 
     @Override
     public List<State> findAll() {
-        String findAllStates = """
-                select * from States
-                """;
+        String findAllStates = " select * from States ";
         return jdbcTemplate.query(findAllStates, rowMapper);
     }
 
     @Override
     public String findByName(String name) {
-        String findByName = """
-                select capital from States where name = ?;
-                """;
+        String findByName = " select capital from States where name = ?";
         return jdbcTemplate.queryForObject(findByName, String.class, name);
     }
 }

@@ -1,10 +1,10 @@
-FROM maven:3-adoptopenjdk-16 as build
+FROM maven:3-adoptopenjdk-11 as build
 RUN mkdir /app
 COPY . /app
 WORKDIR /app
 RUN mvn clean package -DskipTests
 
-FROM adoptopenjdk:16-jre
+FROM adoptopenjdk:11-jre
 RUN mkdir /project
 COPY --from=build /app/target/*.jar /project/app.jar
 WORKDIR /project

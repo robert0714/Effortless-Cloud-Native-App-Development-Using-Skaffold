@@ -15,5 +15,6 @@ spec:
         app: skaffold-introduction
     spec:
       containers:
-        - image: docker.io/hiashish/skaffold-introduction
+        - image: skaffold-introduction
           name: skaffold-introduction
+          imagePullPolicy: IfNotPresent

@@ -35,7 +35,7 @@ jobs:
       - name: Install Java 16  
         uses: AdoptOpenJDK/install-jdk@v1
         with:
-          version: '16'
+          version: '11'
           architecture: x64
     # Setup gcloud CLI
       - name: Install gcloud
