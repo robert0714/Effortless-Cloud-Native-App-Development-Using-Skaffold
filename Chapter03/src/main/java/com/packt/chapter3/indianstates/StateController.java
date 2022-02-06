@@ -20,12 +20,14 @@ public class StateController {
 
     @GetMapping("/states")
     public List<State> getAllStates() {
-        LOGGER.info("Getting all Indian states and their capitals.");
+        LOGGER.info("Getting all Indian states and their capitals. ");
         return stateService.findAll();
     }
 
     @GetMapping(value = "/state")
     public String getSpecificState(@RequestParam(required = false, name = "name", defaultValue = "Maharashtra") String name) {
-        return stateService.findByName(name);
+    	String result = stateService.findByName(name);
+    	System.out.println(result);
+        return result;
     }
 }

@@ -15,4 +15,5 @@ public class State {
     public String getCapital(){
         return this.capital ;
     }
+    
 }

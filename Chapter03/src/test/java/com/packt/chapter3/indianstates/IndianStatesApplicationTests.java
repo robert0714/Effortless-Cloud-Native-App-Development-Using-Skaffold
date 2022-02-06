@@ -16,8 +16,8 @@ class IndianStatesApplicationTests {
         String name = "Maharashtra";
         String capital = "Mumbai";
         State state = new State("Maharashtra", "Mumbai");
-        Assert.assertEquals(name, state.name());
-        Assert.assertEquals(capital, state.capital());
+        Assert.assertEquals(name, state.getName());
+        Assert.assertEquals(capital, state.getCapital());
     }
 
     @Test

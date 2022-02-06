@@ -22,3 +22,31 @@ the startup and keeps it in memory.
 
 [![Demo](https://img.youtube.com/vi/KR8DqxaOGBw/2.jpg)](https://www.youtube.com/watch?v=KR8DqxaOGBw)
 
+# If Using Minikube
+
+```bash
+eval $(minikube docker-env)
+export nodePort=$( kubectl get svc skaffold-introduction   -o json | jq -r ".spec.ports[0].nodePort" )
+curl $(minikube ip):$nodePort/states  |jq -r
+
+[
+  {
+    "name": "Andra Pradesh",
+    "capital": "Hyderabad"
+  },
+  {
+    "name": "Arunachal Pradesh",
+    "capital": "Itangar"
+  },
+  {
+...(ommit)
+```
+Indeed we are getting the expected output. Let's hit the other /state?name=statename REST endpoint as well and see if we are getting
+the desired output or not, as follows:
+```bash
+$ eval $(minikube docker-env)
+$ export nodePort=$( kubectl get svc skaffold-introduction   -o json | jq -r ".spec.ports[0].nodePort" )
+$ curl $(minikube ip):$nodePort/states  |jq -r
+$ curl -X GET "$(minikube ip):$nodePort/states?name=Karnataka"
+Bengaluru
+```
